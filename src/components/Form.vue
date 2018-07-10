@@ -2,10 +2,10 @@
   <div>
     <form-box title="Hello Form Box" message="A help message" v-on:save="onSave" @clear="onClear">
         <b-field label="Name">
-            <b-input v-model="name"></b-input>
+            <b-input v-model="name" type="text" minlength="10" maxlength="20"></b-input>
         </b-field>
         <b-field label="Email">
-            <b-input v-model="email"></b-input>
+            <b-input v-model="email" type="email"></b-input>
         </b-field>
     </form-box>
   </div>

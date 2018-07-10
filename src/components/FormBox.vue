@@ -4,8 +4,10 @@
         <b-tag type="is-warning" v-show="message">{{message}}</b-tag>
         <slot></slot>
         <hr/>
-        <button class="button is-primary is-pulled-right" v-on:click="$emit('save')" >Save</button>
-        <button class="button is-secondary" @click="onClearClick" >Clear</button>
+        <p class="buttons is-pulled-right">
+          <a class="button is-primary" v-on:click="$emit('save')" >Save</a>
+          <a class="button is-secondary" @click="onClearClick" >Clear</a>
+        </p>
       </b-message>
   </div>
 </template>
