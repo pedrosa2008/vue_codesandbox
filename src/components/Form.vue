@@ -15,7 +15,7 @@
 import FormBox from './FormBox.vue';
 
 export default {
-  name: 'HelloWorld',
+  name: 'Form',
   components: {
     FormBox
   },
