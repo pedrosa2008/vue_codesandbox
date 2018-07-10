@@ -1,5 +1,14 @@
 <template>
   <div>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><a href="#">Bulma</a></li>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">Components</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+      </ul>
+    </nav>
+    
     <form-box title="Hello Form Box" message="A help message" v-on:save="onSave" @clear="onClear">
         <b-field label="Name">
             <b-input v-model="name" type="text" minlength="10" maxlength="20"></b-input>

@@ -44,6 +44,9 @@ export default {
 </script>
 
 <style scoped>
+  .section {
+    padding: 1rem;
+  }
   .header {
     background: #f5f7f9;
     position: relative;
