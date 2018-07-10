@@ -1,5 +1,8 @@
 <template>
   <div>
+    <!--
+    criar componente para o breadcrumb
+    -->
     <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li><a href="#">Bulma</a></li>
