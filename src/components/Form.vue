@@ -33,13 +33,14 @@
       return {
         name: "",
         email: "",
-        colunas
+        colunas,
+        usuarioSelecionado: {}
       };
     },
     computed: mapState({
       lista: state => state.usuarios.lista,
-      loading: state => state.usuarios.loading,
-      usuarioSelecionado: state => state.usuarios.itemSelecionado
+      loading: state => state.usuarios.loading//,
+      //usuarioSelecionado: state => state.usuarios.itemSelecionado
     }),
     methods: {
       onSave: function() {
@@ -49,11 +50,12 @@
         alert("clear");
       },
       clearSelecionado: function() {
-        this.$store.dispatch('usuarios/setUsuarioSelecionado', {});
+        //this.$store.dispatch('usuarios/setUsuarioSelecionado', {});
+        this.usuarioSelecionado = {};
       },
-      selecionar: function(item) {
-        //console.log(item);
-        this.$store.dispatch('usuarios/setUsuarioSelecionado', item);
+      selecionar: function(usuarioSelecionado) {
+        //this.$store.dispatch('usuarios/setUsuarioSelecionado', usuarioSelecionado);
+        this.usuarioSelecionado = usuarioSelecionado;
       }
     }
   };
