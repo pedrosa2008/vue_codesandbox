@@ -1,14 +1,5 @@
 <template>
   <section>
-    <nav class="breadcrumb" aria-label="breadcrumbs">
-      <ul>
-        <li><a href="#">Bulma</a></li>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Components</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
-      </ul>
-    </nav>
-    
     <form-box message="A help message" v-on:save="onSave" @clear="onClear">
       <b-field label="Name">
         <b-input v-model="name" type="text" minlength="10" maxlength="20"></b-input>
@@ -18,22 +9,28 @@
       </b-field>
     </form-box>
 
-    <data-table :data="dados" :columns="colunas" :selected="selecionado" @clearSelected="clearSelecionado"></data-table>
+    <data-table :data="usuarios" :columns="colunas" :selected="selecionado" :loading="loading" @clearSelected="clearSelecionado"></data-table>
   </section>
 </template>
 
 <script>
+  import { mapState, mapActions } from 'vuex';
   import FormBox from "./FormBox.vue";
   import DataTable from "./DataTable.vue";
 
-  const dados = require('@/assets/data_test.json');
-
   export default {
-
     name: "Form",
     components: {
       FormBox,
       DataTable
+    },
+    computed: mapState({
+      usuarios: state => state.usuarios.all
+    }),
+    created () {
+      this.loading = true;
+      this.$store.dispatch('usuarios/getAllUsuarios');
+      this.loading = false;
     },
     data() {
       const colunas = [
@@ -65,8 +62,8 @@
       return {
         name: "",
         email: "",
-        dados,
         colunas,
+        loading: false,
         selecionado: {}
       };
     },

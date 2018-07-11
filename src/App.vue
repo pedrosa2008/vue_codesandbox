@@ -17,8 +17,8 @@
 
         <!-- Right side -->
         <section class="level-right">
-          <p class="level-item"><strong>Dashboard</strong></p>
-          <p class="level-item"><a>Usuários</a></p>
+          <p class="level-item"><a>Dashboard</a></p>
+          <p class="level-item"><strong>Usuários</strong></p>
           <p class="level-item"><a>Configurações</a></p>
         </section>
       </nav>
@@ -31,7 +31,7 @@
     <footer class="footer">
       <section class="content has-text-centered">
         <p>
-          <strong>Vuejs App</strong> by <a href="#">Fernando Pedrosa</a>.
+          <strong>Vuejs App</strong> by <a>Fernando Pedrosa</a>.
           <strong>Versão</strong> 1.0.0
         </p>
       </section>
