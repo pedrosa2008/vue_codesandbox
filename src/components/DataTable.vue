@@ -4,7 +4,7 @@
       :disabled="(JSON.stringify(selected) === JSON.stringify({}))">
       <span>Clear selected</span>
     </button>
-    <b-table :data="data" :columns="columns" :selected.sync="selected" :loading="loading" striped paginated per-page="5" pagination-simple>
+    <b-table :data="data" :columns="columns" :selected.sync="selected" :loading="isLoading" striped paginated per-page="5" pagination-simple>
       <template slot="empty">
         <section class="section">
           <div class="content has-text-grey has-text-centered">
@@ -24,7 +24,7 @@
 <script>
   export default {
     name: "DataTable",
-    props: ["data", "columns", "selected", "loading"],
+    props: ["data", "columns", "selected", "isLoading"],
     data() {
       return {};
     },

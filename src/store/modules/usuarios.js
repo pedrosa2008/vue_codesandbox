@@ -1,28 +1,41 @@
-import usuarios from '../../api/usuarios'
+import apiUsuarios from '../../api/usuarios'
 
 // initial state
 const state = {
-  all: []
-}
+  lista: [],
+  loading: false
+};
 
 // getters
-const getters = {}
+const getters = {};
 
 // actions
 const actions = {
   getAllUsuarios({ commit }) {
-    usuarios.getUsuarios(usuarios => {
-      commit('setUsuarios', usuarios)
-    })
+    commit('setLoading', true);
+    
+    apiUsuarios.getAll()
+      .then((lista) => {
+        commit('setUsuarios', lista);
+        commit('setLoading', false);
+      })
+      .catch((error) => {
+        commit('setUsuarios', []);
+        commit('setLoading', false);
+        throw error;
+      });
   }
-}
+};
 
 // mutations
 const mutations = {
-  setUsuarios(state, usuarios) {
-    state.all = usuarios
+  setUsuarios(state, lista) {
+    state.lista = lista;
+  },
+  setLoading(state, loading) {
+    state.loading = loading;
   }
-}
+};
 
 export default {
   namespaced: true,
@@ -30,4 +43,4 @@ export default {
   getters,
   actions,
   mutations
-}
+};

@@ -4,7 +4,11 @@
 const _usuarios = require('@/api/usuarios_test.json');
 
 export default {
-  getUsuarios(cb) {
-    setTimeout(() => cb(_usuarios), 1000);
+  getAll() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(_usuarios);
+      }, 10000);
+    });
   }
-}
+};

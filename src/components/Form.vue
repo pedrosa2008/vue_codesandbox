@@ -9,12 +9,12 @@
       </b-field>
     </form-box>
 
-    <data-table :data="usuarios" :columns="colunas" :selected="selecionado" :loading="loading" @clearSelected="clearSelecionado"></data-table>
+    <data-table :data="lista" :columns="colunas" :selected="selecionado" :isLoading="false" @clearSelected="clearSelecionado"></data-table>
   </section>
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex';
+  import { mapState } from 'vuex';
   import FormBox from "./FormBox.vue";
   import DataTable from "./DataTable.vue";
 
@@ -24,49 +24,21 @@
       FormBox,
       DataTable
     },
-    computed: mapState({
-      usuarios: state => state.usuarios.all
-    }),
     created () {
-      this.loading = true;
       this.$store.dispatch('usuarios/getAllUsuarios');
-      this.loading = false;
     },
     data() {
-      const colunas = [
-        {
-          field: "id",
-          label: "ID",
-          width: "40",
-          numeric: true
-        },
-        {
-          field: "first_name",
-          label: "First Name"
-        },
-        {
-          field: "last_name",
-          label: "Last Name"
-        },
-        {
-          field: "date",
-          label: "Date",
-          centered: true
-        },
-        {
-          field: "gender",
-          label: "Gender"
-        }
-      ];
-
       return {
         name: "",
         email: "",
         colunas,
-        loading: false,
         selecionado: {}
       };
     },
+    computed: mapState({
+      lista: state => state.usuarios.lista,
+      loading: state => state.usuarios.loading
+    }),
     methods: {
       onSave: function() {
         console.log("Save", this.name, this.email);
@@ -79,4 +51,26 @@
       }
     }
   };
+  
+  const colunas = [
+    {
+      field: "id",
+      label: "ID",
+      width: "40",
+      numeric: true
+    }, {
+      field: "first_name",
+      label: "First Name"
+    }, {
+      field: "last_name",
+      label: "Last Name"
+    }, {
+      field: "date",
+      label: "Date",
+      centered: true
+    }, {
+      field: "gender",
+      label: "Gender"
+    }
+  ];
 </script>
