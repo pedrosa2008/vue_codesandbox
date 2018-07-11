@@ -7,8 +7,12 @@ export default {
   getAll() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(_usuarios);
-      }, 10000);
+        if (_usuarios) {
+          resolve(_usuarios);
+        } else {
+          reject("Nenhum registro encontrado.");
+        }
+      }, 2000);
     });
   }
 };

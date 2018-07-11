@@ -11,7 +11,7 @@
             <p>
               <b-icon icon="emoticon-sad" size="is-large"></b-icon>
             </p>
-            <p>Nothing here.</p>
+            <p>Nenhum registro encontrado.</p>
           </div>
         </section>
       </template>

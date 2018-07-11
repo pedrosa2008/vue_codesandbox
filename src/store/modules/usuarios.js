@@ -22,7 +22,6 @@ const actions = {
       .catch((error) => {
         commit('setUsuarios', []);
         commit('setLoading', false);
-        throw error;
       });
   }
 };

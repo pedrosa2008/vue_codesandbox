@@ -9,7 +9,7 @@
       </b-field>
     </form-box>
 
-    <data-table :data="lista" :columns="colunas" :selected="selecionado" :isLoading="false" @clearSelected="clearSelecionado"></data-table>
+    <data-table :data="lista" :columns="colunas" :selected="selecionado" :isLoading="loading" @clearSelected="clearSelecionado"></data-table>
   </section>
 </template>
 
