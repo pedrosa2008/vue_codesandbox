@@ -4,7 +4,18 @@
       :disabled="(JSON.stringify(selected) === JSON.stringify({}))">
       <span>Clear selected</span>
     </button>
-    <b-table :data="data" :columns="columns" :selected.sync="selected"></b-table>
+    <b-table :data="data" :columns="columns" :selected.sync="selected" striped paginated per-page="5" pagination-simple>
+      <template slot="empty">
+        <section class="section">
+          <div class="content has-text-grey has-text-centered">
+            <p>
+              <b-icon icon="emoticon-sad" size="is-large"></b-icon>
+            </p>
+            <p>Nothing here.</p>
+          </div>
+        </section>
+      </template>
+    </b-table>
 
     <pre>{{ selected }}</pre>
   </section>
