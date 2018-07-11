@@ -3,6 +3,7 @@ import apiUsuarios from '../../api/usuarios'
 // initial state
 const state = {
   lista: [],
+  itemSelecionado: {},
   loading: false
 };
 
@@ -23,6 +24,9 @@ const actions = {
         commit('setUsuarios', []);
         commit('setLoading', false);
       });
+  },
+  setUsuarioSelecionado({ commit }, usuario) {
+    commit('setItemSelecionado', usuario);
   }
 };
 
@@ -33,6 +37,9 @@ const mutations = {
   },
   setLoading(state, loading) {
     state.loading = loading;
+  },
+  setItemSelecionado(state, itemSelecionado) {
+    state.itemSelecionado = itemSelecionado;
   }
 };
 

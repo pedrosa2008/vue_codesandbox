@@ -9,7 +9,9 @@
       </b-field>
     </form-box>
 
-    <data-table :data="lista" :columns="colunas" :selected="selecionado" :isLoading="loading" @clearSelected="clearSelecionado"></data-table>
+    <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clearSelected="clearSelecionado" v-on:select="selecionar"></data-table>
+    
+    <pre>{{ usuarioSelecionado }}</pre>
   </section>
 </template>
 
@@ -31,13 +33,13 @@
       return {
         name: "",
         email: "",
-        colunas,
-        selecionado: {}
+        colunas
       };
     },
     computed: mapState({
       lista: state => state.usuarios.lista,
-      loading: state => state.usuarios.loading
+      loading: state => state.usuarios.loading,
+      usuarioSelecionado: state => state.usuarios.itemSelecionado
     }),
     methods: {
       onSave: function() {
@@ -47,7 +49,11 @@
         alert("clear");
       },
       clearSelecionado: function() {
-        this.selecionado = {};
+        this.$store.dispatch('usuarios/setUsuarioSelecionado', {});
+      },
+      selecionar: function(item) {
+        //console.log(item);
+        this.$store.dispatch('usuarios/setUsuarioSelecionado', item);
       }
     }
   };

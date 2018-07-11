@@ -1,10 +1,10 @@
 <template>
   <section>
-    <button class="button field is-danger" @click="onClearSelectedClick"
-      :disabled="(JSON.stringify(selected) === JSON.stringify({}))">
+    <button class="button field is-danger" @click="onClearSelectedClick" :disabled="disabled">
       <span>Clear selected</span>
     </button>
-    <b-table :data="data" :columns="columns" :selected.sync="selected" :loading="isLoading" striped paginated per-page="5" pagination-simple>
+    <b-table :data="data" v-bind:columns="columns" :selected.sync="selected" :loading="isLoading"
+      striped paginated per-page="5" pagination-simple>
       <template slot="empty">
         <section class="section">
           <div class="content has-text-grey has-text-centered">
@@ -16,21 +16,28 @@
         </section>
       </template>
     </b-table>
-
-    <pre>{{ selected }}</pre>
   </section>
 </template>
 
 <script>
   export default {
     name: "DataTable",
-    props: ["data", "columns", "selected", "isLoading"],
+    props: ["data", "columns", "isLoading"],
     data() {
-      return {};
+      return {
+        selected: {}
+      };
     },
     methods: {
       onClearSelectedClick: function() {
         this.$emit("clearSelected");
+        this.selected = {};
+      }
+    },
+    computed: {
+      disabled: function () {
+        this.$emit("select", this.selected);
+        return (JSON.stringify(this.selected) === JSON.stringify({}));
       }
     }
   };
