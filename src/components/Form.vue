@@ -9,9 +9,11 @@
       </b-field>
     </form-box>
 
-    <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clearSelected="clearSelecionado" v-on:select="selecionar"></data-table>
-    
-    <pre style="border-radius: 0.5rem">{{ usuarioSelecionado }}</pre>
+    <form-box displayButtons="none">
+      <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clearSelected="clearSelecionado" v-on:select="selecionar"></data-table>
+      
+      <pre style="border-radius: 0.5rem">{{ usuarioSelecionado }}</pre>
+    </form-box>
   </section>
 </template>
 
