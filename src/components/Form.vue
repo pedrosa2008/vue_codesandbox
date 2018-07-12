@@ -11,7 +11,7 @@
 
     <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clearSelected="clearSelecionado" v-on:select="selecionar"></data-table>
     
-    <pre>{{ usuarioSelecionado }}</pre>
+    <pre style="border-radius: 0.5rem">{{ usuarioSelecionado }}</pre>
   </section>
 </template>
 
