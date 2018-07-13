@@ -30,20 +30,16 @@
         <section class="navbar-end">
           <section class="navbar-item is-hoverable avatar">
           <section class="user">
-            <span>
-              Fernando Pedrosa
-            </span>
+            <span>{{ usuario.nome }}</span>
             <figure>
-              <img src="https://media.licdn.com/dms/image/C4E03AQFp9TcCnUmrFQ/profile-displayphoto-shrink_100_100/0?e=1536796800&v=beta&t=1qWDuWwrow24Odl7T2rgG-if_fC_2fG7Zqo4MnFA-20">
+              <img v-bind:src="usuario.avatar">
             </figure>
           </section>
-            <section class="field is-grouped">
-              <section class="navbar-dropdown is-boxed is-right">
-                <a class="navbar-item" href="#">Perfil</a>
-                <a class="navbar-item" href="#">Configurações</a>
-                <hr class="navbar-divider">
-                <a class="navbar-item is-active" href="#">Sair</a>
-              </section>
+            <section class="navbar-dropdown is-boxed is-right">
+              <a class="navbar-item" href="#">Perfil</a>
+              <a class="navbar-item" href="#">Configurações</a>
+              <hr class="navbar-divider">
+              <a class="navbar-item is-active" href="#">Sair</a>
             </section>
           </section>
         </section>
@@ -79,7 +75,11 @@
     name: "App",
     data() {
       return {
-        showNav: false
+        showNav: false,
+        usuario: {
+          nome: "Fernando Pedrosa",
+          avatar: 'https://media.licdn.com/dms/image/C4E03AQFp9TcCnUmrFQ/profile-displayphoto-shrink_100_100/0?e=1536796800&v=beta&t=1qWDuWwrow24Odl7T2rgG-if_fC_2fG7Zqo4MnFA-20'
+        }
       };
     }
   };
@@ -115,7 +115,7 @@
     border-radius: 10rem;
   }
   .avatar span {
-    margin: 0.75rem;
+    margin: 0.9rem;
   }
   .user {
     display: inline-flex;
