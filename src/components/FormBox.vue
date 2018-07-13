@@ -11,7 +11,7 @@
       <hr/>
       <section class="buttons has-addons is-right">
         <a class="button is-secondary" @click="onClearClick" >Clear</a>
-        <a class="button is-primary" v-on:click="$emit('save')" >Save</a>
+        <a class="button is-primary" v-on:click="$emit('save-click')" >Save</a>
       </section>
     </section>
   </section>
@@ -26,7 +26,7 @@
     },
     methods: {
       onClearClick: function() {
-        this.$emit("clear");
+        this.$emit("clear-click");
       }
     }
   };

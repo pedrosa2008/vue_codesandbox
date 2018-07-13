@@ -5,14 +5,14 @@
         <a class="navbar-item" href="#">
           <p class="title">Vuejs App</p>
         </a>
-        <section class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <section class="navbar-burger burger" data-target="navbarTop" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
           <span></span>
           <span></span>
           <span></span>
         </section>
       </section>
 
-      <section id="navbarExampleTransparentExample" class="navbar-menu">
+      <section id="navbarTop" class="navbar-menu" :class="{ 'is-active': showNav }">
         <section class="navbar-start">
           <a class="navbar-item" href="#">Dashboard</a>
           <section class="navbar-item has-dropdown is-hoverable">
@@ -49,21 +49,19 @@
       <router-view />
     </section>
 
-    <nav class="navbar is-transparent is-fixed-bottom has-shadow">
-      <section class="navbar-brand">
-        <a class="navbar-item" href="#">
+    <nav class="navbar is-transparent is-fixed-bottom has-shadow navbar-botton">
+      <section class="navbar-start">
+        <section class="navbar-item">
           <p>
             <strong>Vuejs App</strong> by <a>Fernando Pedrosa</a>.
           </p>
-        </a>
+        </section>
       </section>
-
-      <section id="navbarExampleTransparentExample" class="navbar-menu">
-        <section class="navbar-end">
-          <section class="navbar-item">
-            <section class="field is-grouped">
-              <strong>Versão</strong> 1.0.0
-            </section>
+      <section class="navbar-end">
+        <section class="navbar-item">
+          <section class="tags has-addons">
+            <span class="tag is-dark">app</span>
+            <span class="tag is-info">0.0.1</span>
           </section>
         </section>
       </section>
@@ -73,7 +71,12 @@
 
 <script>
   export default {
-    name: "App"
+    name: "App",
+    data() {
+      return {
+        showNav: false
+      };
+    }
   };
 </script>
 
@@ -105,5 +108,8 @@
   .avatar img {
     min-height: 40px;
     border-radius: 10rem;
+  }
+  .navbar-botton {
+    display: inline-flex;
   }
 </style>

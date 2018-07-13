@@ -30,13 +30,13 @@
     },
     methods: {
       onClearSelectedClick: function() {
-        this.$emit("clearSelected");
+        this.$emit("clear-selected-click");
         this.selected = {};
       }
     },
     computed: {
       disabled: function () {
-        this.$emit("select", this.selected);
+        this.$emit("select-click", this.selected);
         return (JSON.stringify(this.selected) === JSON.stringify({}));
       }
     }

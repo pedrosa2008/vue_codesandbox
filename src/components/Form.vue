@@ -1,6 +1,6 @@
 <template>
   <section>
-    <form-box message="A help message" v-on:save="onSave" @clear="onClear">
+    <form-box message="A help message" v-on:save-click="onSave" @clear-click="onClear">
       <b-field label="Name">
         <b-input v-model="name" type="text" minlength="10" maxlength="20"></b-input>
       </b-field>
@@ -10,7 +10,7 @@
     </form-box>
 
     <form-box displayButtons="none">
-      <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clearSelected="clearSelecionado" v-on:select="selecionar"></data-table>
+      <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clear-selected-click="clearSelecionado" v-on:select-click="selecionar"></data-table>
       
       <pre style="border-radius: 0.5rem">{{ usuarioSelecionado }}</pre>
     </form-box>
