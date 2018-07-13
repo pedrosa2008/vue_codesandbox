@@ -1,6 +1,6 @@
 <template>
   <section id="app">
-    <nav class="navbar is-transparent is-fixed-top has-shadow">
+    <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="$route.path !== '/'">
       <section class="navbar-brand">
         <a class="navbar-item" href="#">
           <p class="title">Vuejs App</p>
@@ -46,7 +46,7 @@
       </section>
     </nav>
 
-    <section class="column content">
+    <section id="content" class="column content">
       <router-view />
     </section>
 

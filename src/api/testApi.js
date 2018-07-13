@@ -1,14 +1,14 @@
 /**
  * Mocking client-server processing
  */
-const _usuarios = require('@/api/usuarios_test.json');
+const _data = require('@/api/test.json');
 
 export default {
   getAll() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (_usuarios) {
-          resolve(_usuarios);
+        if (_data) {
+          resolve(_data);
         } else {
           reject("Nenhum registro encontrado.");
         }

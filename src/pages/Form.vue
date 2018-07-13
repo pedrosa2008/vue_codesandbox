@@ -10,77 +10,83 @@
     </form-box>
 
     <form-box displayButtons="none">
-      <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading" @clear-selected-click="clearSelecionado" v-on:select-click="selecionar"></data-table>
+      <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading"
+        @clear-selected-click="clearSelecionado" v-on:select-click="selecionar">
+      </data-table>
       
-      <pre style="border-radius: 0.5rem">{{ usuarioSelecionado }}</pre>
+      <pre style="border-radius: 0.5rem">{{ itemSelecionado }}</pre>
     </form-box>
   </section>
 </template>
 
 <script>
-  import { mapState } from 'vuex';
-  import FormBox from "@/components/FormBox.vue";
-  import DataTable from "@/components/DataTable.vue";
+import { mapState } from "vuex";
+import FormBox from "@/components/FormBox.vue";
+import DataTable from "@/components/DataTable.vue";
 
-  export default {
-    name: "Form",
-    components: {
-      FormBox,
-      DataTable
+export default {
+  name: "Form",
+  components: {
+    FormBox,
+    DataTable
+  },
+  created() {
+    this.$store.dispatch("testStore/getAll");
+  },
+  data() {
+    return {
+      name: "",
+      email: "",
+      colunas,
+      itemSelecionado: {}
+    };
+  },
+  computed: mapState({
+    lista: state => state.testStore.lista,
+    loading: state => state.testStore.loading //,
+    //itemSelecionado: state => state.testStore.item
+  }),
+  methods: {
+    onSave: function() {
+      console.log("Save", this.name, this.email);
     },
-    created () {
-      this.$store.dispatch('usuarios/getAllUsuarios');
+    onClear: function() {
+      alert("clear");
     },
-    data() {
-      return {
-        name: "",
-        email: "",
-        colunas,
-        usuarioSelecionado: {}
-      };
+    clearSelecionado: function() {
+      //this.$store.dispatch('testStore/setItem', {});
+      this.itemSelecionado = {};
     },
-    computed: mapState({
-      lista: state => state.usuarios.lista,
-      loading: state => state.usuarios.loading//,
-      //usuarioSelecionado: state => state.usuarios.itemSelecionado
-    }),
-    methods: {
-      onSave: function() {
-        console.log("Save", this.name, this.email);
-      },
-      onClear: function() {
-        alert("clear");
-      },
-      clearSelecionado: function() {
-        //this.$store.dispatch('usuarios/setUsuarioSelecionado', {});
-        this.usuarioSelecionado = {};
-      },
-      selecionar: function(usuarioSelecionado) {
-        //this.$store.dispatch('usuarios/setUsuarioSelecionado', usuarioSelecionado);
-        this.usuarioSelecionado = usuarioSelecionado;
-      }
+    selecionar: function(itemSelecionado) {
+      //this.$store.dispatch('testStore/setItem', itemSelecionado);
+      this.itemSelecionado = itemSelecionado;
     }
-  };
-  
-  const colunas = [
-    {
-      field: "id",
-      label: "ID",
-      width: "40",
-      numeric: true
-    }, {
-      field: "first_name",
-      label: "First Name"
-    }, {
-      field: "last_name",
-      label: "Last Name"
-    }, {
-      field: "date",
-      label: "Date",
-      centered: true
-    }, {
-      field: "gender",
-      label: "Gender"
-    }
-  ];
+  }
+};
+
+const colunas = [
+  {
+    field: "id",
+    label: "ID",
+    width: "40",
+    numeric: true
+  },
+  {
+    field: "first_name",
+    label: "First Name"
+  },
+  {
+    field: "last_name",
+    label: "Last Name"
+  },
+  {
+    field: "date",
+    label: "Date",
+    centered: true
+  },
+  {
+    field: "gender",
+    label: "Gender"
+  }
+];
 </script>

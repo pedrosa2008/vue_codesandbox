@@ -1,9 +1,9 @@
-import apiUsuarios from '../../api/usuarios'
+import testApi from '@/api/testApi'
 
 // initial state
 const state = {
   lista: [],
-  itemSelecionado: {},
+  item: {},
   loading: false
 };
 
@@ -12,34 +12,34 @@ const getters = {};
 
 // actions
 const actions = {
-  getAllUsuarios({ commit }) {
+  getAll({ commit }) {
     commit('setLoading', true);
     
-    apiUsuarios.getAll()
+    testApi.getAll()
       .then((lista) => {
-        commit('setUsuarios', lista);
+        commit('setLista', lista);
         commit('setLoading', false);
       })
       .catch((error) => {
-        commit('setUsuarios', []);
+        commit('setLista', []);
         commit('setLoading', false);
       });
   },
-  setUsuarioSelecionado({ commit }, usuario) {
-    commit('setItemSelecionado', usuario);
+  setItem({ commit }, item) {
+    commit('setItem', item);
   }
 };
 
 // mutations
 const mutations = {
-  setUsuarios(state, lista) {
+  setLista(state, lista) {
     state.lista = lista;
   },
   setLoading(state, loading) {
     state.loading = loading;
   },
-  setItemSelecionado(state, itemSelecionado) {
-    state.itemSelecionado = itemSelecionado;
+  setItem(state, item) {
+    state.item = item;
   }
 };
 
