@@ -1,6 +1,6 @@
 <template>
   <section id="app">
-    <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="!authenticated">
+    <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="authenticated">
       <section class="navbar-brand">
         <a class="navbar-item" href="#">
           <p class="title">Vuejs App</p>
@@ -30,9 +30,9 @@
         <section class="navbar-end">
           <section class="navbar-item is-hoverable avatar">
           <section class="user">
-            <span>{{ usuario.nome }}</span>
+            <span>{{ usuarioLogado.nome }}</span>
             <figure>
-              <img v-bind:src="usuario.avatar">
+              <img v-bind:src="usuarioLogado.avatar">
             </figure>
           </section>
             <section class="navbar-dropdown is-boxed is-right">
@@ -77,11 +77,7 @@
     name: "App",
     data() {
       return {
-        showNav: false,
-        usuario: {
-          nome: "Fernando Pedrosa",
-          avatar: 'https://media.licdn.com/dms/image/C4E03AQFp9TcCnUmrFQ/profile-displayphoto-shrink_100_100/0?e=1536796800&v=beta&t=1qWDuWwrow24Odl7T2rgG-if_fC_2fG7Zqo4MnFA-20'
-        }
+        showNav: false
       };
     },
     computed: mapState({

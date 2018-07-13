@@ -1,5 +1,5 @@
 import usuarioApi from '@/api/authApi';
-import router from './router';
+import router from '@/router';
 
 // initial state
 const state = {
