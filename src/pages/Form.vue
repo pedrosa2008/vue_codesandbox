@@ -19,8 +19,8 @@
 
 <script>
   import { mapState } from 'vuex';
-  import FormBox from "./FormBox.vue";
-  import DataTable from "./DataTable.vue";
+  import FormBox from "@/components/FormBox.vue";
+  import DataTable from "@/components/DataTable.vue";
 
   export default {
     name: "Form",
