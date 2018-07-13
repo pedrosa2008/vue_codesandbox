@@ -29,9 +29,14 @@
 
         <section class="navbar-end">
           <section class="navbar-item is-hoverable avatar">
+          <section class="user">
+            <span>
+              Fernando Pedrosa
+            </span>
             <figure>
               <img src="https://media.licdn.com/dms/image/C4E03AQFp9TcCnUmrFQ/profile-displayphoto-shrink_100_100/0?e=1536796800&v=beta&t=1qWDuWwrow24Odl7T2rgG-if_fC_2fG7Zqo4MnFA-20">
             </figure>
+          </section>
             <section class="field is-grouped">
               <section class="navbar-dropdown is-boxed is-right">
                 <a class="navbar-item" href="#">Perfil</a>
@@ -108,6 +113,12 @@
   .avatar img {
     min-height: 40px;
     border-radius: 10rem;
+  }
+  .avatar span {
+    margin: 0.75rem;
+  }
+  .user {
+    display: inline-flex;
   }
   .navbar-botton {
     display: inline-flex;
