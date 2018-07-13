@@ -39,7 +39,7 @@
               <a class="navbar-item" href="#">Perfil</a>
               <a class="navbar-item" href="#">Configurações</a>
               <hr class="navbar-divider">
-              <a class="navbar-item is-active" href="#">Sair</a>
+              <a class="navbar-item is-active" v-on:click="logout">Sair</a>
             </section>
           </section>
         </section>
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-  import { mapState } from "vuex";
+  import { mapState, mapActions } from "vuex";
 
   export default {
     name: "App",
@@ -84,7 +84,10 @@
       usuarioLogado: state => state.authStore.usuarioLogado,
       authenticated: state => state.authStore.authenticated,
       loading: state => state.authStore.loading
-    })
+    }),
+    methods: mapActions('authStore', [
+      'logout'
+    ])
   };
 </script>
 

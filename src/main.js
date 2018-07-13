@@ -12,7 +12,28 @@ Vue.config.productionTip = false;
 
 Vue.use(Buefy, {
   defaultContainerElement: '#content'
-})
+});
+
+//valida se o usuário está logado
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const authenticated = store.state.authStore.authenticated;
+  console.log("to");
+  console.log(to.path);
+  console.log("from");
+  console.log(from);
+  console.log("next");
+  console.log(next);
+
+  if (requiresAuth && !authenticated) {
+    next('/');
+  } else
+    if (authenticated && to.path === '/') {
+      next(from.path);
+    } else {
+      next();
+    }
+});
 
 /* eslint-disable no-new */
 new Vue({

@@ -4,21 +4,22 @@
 const _data = require('@/api/usuario.json');
 
 export default {
-  authenticate(login, senha) {
+  authenticate(usuario) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        let usuario = {};
+        let retorno = {};
 
-        for (let user in _data) {
-          if (login === user.login && senha === user.senha) {
-            usuario = user;
+        for (let index in _data) {
+          let user = _data[index];
+          if (usuario.login === user.login && usuario.senha === user.senha) {
+            retorno = user;
           }
         }
 
-        if (usuario.id) {
-          resolve(usuario);
+        if (retorno.id) {
+          resolve(retorno);
         } else {
-          reject(usuario);
+          reject(retorno);
         }
       }, 2000);
     });

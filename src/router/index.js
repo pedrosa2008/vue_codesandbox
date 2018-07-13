@@ -8,6 +8,8 @@ import Form from '@/pages/Form';
 
 Vue.use(Router);
 
+//const router = new VueRouter({ routes: routes, mode: 'history' });
+
 export default new Router({
   routes: [
     {
@@ -18,17 +20,26 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: Dashboard
+      component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/usuario',
       name: 'Usuario',
-      component: Usuario
+      component: Usuario,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/form',
       name: 'Form',
-      component: Form
+      component: Form,
+      meta: {
+        requiresAuth: true
+      }
     },
   ]
 });

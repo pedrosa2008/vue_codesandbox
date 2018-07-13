@@ -13,18 +13,18 @@ const getters = {};
 
 // actions
 const actions = {
-  authenticate({ commit }, login, senha) {
+  authenticate({ commit }, usuario) {
     commit('setLoading', true);
 
-    usuarioApi.authenticate(login, senha)
-      .then((usuario) => {
-        commit('setUsuarioLogado', usuario);
+    usuarioApi.authenticate(usuario)
+      .then((usuarioLogado) => {
+        commit('setUsuarioLogado', usuarioLogado);
         commit('setAuthenticated', true);
         commit('setLoading', false);
         router.push("/dashboard");
       })
       .catch((error) => {
-        commit('setUsuarioLogado', {});
+        commit('setUsuarioLogado', {erro: "Login e/ou Senha inválidos."});
         commit('setAuthenticated', false);
         commit('setLoading', false);
       });
@@ -43,6 +43,9 @@ const mutations = {
   },
   setAuthenticated(state, authenticated) {
     state.authenticated = authenticated;
+  },
+  setLoading(state, loading) {
+    state.loading = loading;
   }
 };
 
