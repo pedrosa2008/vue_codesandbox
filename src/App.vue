@@ -1,11 +1,11 @@
 <template>
   <section id="app">
     <b-loading :active.sync="isGlobalLoading"></b-loading>
-    
+
     <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="authenticated">
       <section class="navbar-brand">
-        <a class="navbar-item" href="#">
-          <p class="title">Vuejs App</p>
+        <a class="navbar-item">
+          <p class="title">Finanças</p>
         </a>
         <section class="navbar-burger burger" data-target="navbarTop" @click="showNav = !showNav" :class="{ 'is-active': showNav }">
           <span></span>
@@ -16,15 +16,12 @@
 
       <section id="navbarTop" class="navbar-menu" :class="{ 'is-active': showNav }">
         <section class="navbar-start">
-          <a class="navbar-item" href="#">Dashboard</a>
+          <a class="navbar-item">Dashboard</a>
           <section class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="#">Pessoas</a>
+            <a class="navbar-link">Pessoas</a>
             <section class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="#">Pessoa Física</a>
-              <a class="navbar-item" href="#">Pessoa Jurídica</a>
-              <hr class="navbar-divider">
-              <a class="navbar-item" href="#">Elements</a>
-              <a class="navbar-item is-active" href="#">Components</a>
+              <a class="navbar-item">Pessoa Física</a>
+              <a class="navbar-item">Pessoa Jurídica</a>
             </section>
           </section>
         </section>
@@ -33,15 +30,14 @@
           <section class="navbar-item is-hoverable avatar">
           <section class="user">
             <span>{{ usuarioLogado.nome }}</span>
-            <figure>
+            <figure class="is-hidden-mobile">
               <img v-bind:src="usuarioLogado.avatar">
             </figure>
           </section>
             <section class="navbar-dropdown is-boxed is-right">
-              <a class="navbar-item" href="#">Perfil</a>
-              <a class="navbar-item" href="#">Configurações</a>
+              <a class="navbar-item">Perfil</a>
               <hr class="navbar-divider">
-              <a class="navbar-item is-active" v-on:click="logout">Sair</a>
+              <a class="navbar-item has-text-link" v-on:click="logout">Sair</a>
             </section>
           </section>
         </section>
@@ -52,18 +48,18 @@
       <router-view />
     </section>
 
-    <nav class="navbar is-transparent is-fixed-bottom has-shadow navbar-botton">
+    <nav class="navbar is-transparent is-fixed-bottom has-shadow is-inline-flex-mobile">
       <section class="navbar-start">
         <section class="navbar-item">
           <p>
-            <strong>Vuejs App</strong> by <a>Fernando Pedrosa</a>.
+            <strong>Finanças</strong> by <a>Fernando Pedrosa</a>.
           </p>
         </section>
       </section>
       <section class="navbar-end">
         <section class="navbar-item">
           <section class="tags has-addons">
-            <span class="tag is-dark">app</span>
+            <span class="tag is-dark">versão</span>
             <span class="tag is-info">0.0.1</span>
           </section>
         </section>
@@ -133,9 +129,6 @@
     margin: 0.9rem;
   }
   .user {
-    display: inline-flex;
-  }
-  .navbar-botton {
     display: inline-flex;
   }
 </style>
