@@ -1,5 +1,6 @@
 import usuarioApi from '@/api/authApi';
 import router from '@/router';
+import { Toast, Snackbar } from 'buefy';
 
 // initial state
 const state = {
@@ -33,6 +34,13 @@ const actions = {
     commit('setUsuarioLogado', {});
     commit('setAuthenticated', false);
     router.push("/");
+    
+    Toast.open({
+      message: 'Logout efetuado com sucesso!',
+      type: 'is-success'
+    });
+
+    //Snackbar.open('Logout efetuado com sucesso!');
   }
 };
 

@@ -18,7 +18,7 @@
     <section class="media-footer">
       <hr/>
       <section class="buttons has-addons is-right">
-        <a class="button is-secondary" v-bind:click="onCancelarClick" >Cancelar</a>
+        <a class="button is-secondary" v-on:click="onCancelarClick" >Cancelar</a>
         <a class="button is-primary" @click="onLogarClick" >Logar</a>
       </section>
     </section>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from "vuex";
+  import { mapState} from "vuex";
 
   export default {
     name: "Login",
@@ -52,11 +52,6 @@
         }
       }
     }
-    /*
-    methods: mapActions('authStore', [
-      'authenticate'
-    ])
-    */
   };
 </script>
 

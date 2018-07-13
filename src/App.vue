@@ -67,11 +67,12 @@
         </section>
       </section>
     </nav>
+    <b-loading :is-full-page="isFullPage" :active.sync="isGlobalLoading" :can-cancel="false"></b-loading>
   </section>
 </template>
 
 <script>
-  import { mapState, mapActions } from "vuex";
+  import { mapState/*, mapActions */ } from "vuex";
 
   export default {
     name: "App",
@@ -83,11 +84,18 @@
     computed: mapState({
       usuarioLogado: state => state.authStore.usuarioLogado,
       authenticated: state => state.authStore.authenticated,
-      loading: state => state.authStore.loading
+      isGlobalLoading: state => state.authStore.loading
     }),
+    methods: {
+      logout: function() {
+        this.$store.dispatch("authStore/logout");
+      }
+    }
+    /*
     methods: mapActions('authStore', [
       'logout'
     ])
+    */
   };
 </script>
 
