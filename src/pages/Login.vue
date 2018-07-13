@@ -7,7 +7,7 @@
         </b-tag>
         <hr v-if="erro" />
         <b-field label="Login">
-          <b-input v-model="usuario.login" type="text" minlength="5" maxlength="20"></b-input>
+          <b-input v-model="usuario.login" type="text" minlength="5" maxlength="20" autofocus></b-input>
         </b-field>
         <b-field label="Senha">
           <b-input v-model="usuario.senha" type="password"></b-input>

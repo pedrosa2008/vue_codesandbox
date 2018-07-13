@@ -37,7 +37,7 @@ const actions = {
     
     Toast.open({
       message: 'Logout efetuado com sucesso!',
-      type: 'is-success'
+      type: 'is-info'
     });
 
     //Snackbar.open('Logout efetuado com sucesso!');

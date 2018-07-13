@@ -1,5 +1,7 @@
 <template>
   <section id="app">
+    <b-loading :active.sync="isGlobalLoading"></b-loading>
+    
     <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="authenticated">
       <section class="navbar-brand">
         <a class="navbar-item" href="#">
@@ -67,7 +69,6 @@
         </section>
       </section>
     </nav>
-    <b-loading :is-full-page="isFullPage" :active.sync="isGlobalLoading" :can-cancel="false"></b-loading>
   </section>
 </template>
 
