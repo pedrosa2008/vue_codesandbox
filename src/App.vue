@@ -1,6 +1,6 @@
 <template>
   <section id="app">
-    <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="$route.path !== '/'">
+    <nav class="navbar is-transparent is-fixed-top has-shadow" v-if="!authenticated">
       <section class="navbar-brand">
         <a class="navbar-item" href="#">
           <p class="title">Vuejs App</p>
@@ -71,6 +71,8 @@
 </template>
 
 <script>
+  import { mapState } from "vuex";
+
   export default {
     name: "App",
     data() {
@@ -81,7 +83,12 @@
           avatar: 'https://media.licdn.com/dms/image/C4E03AQFp9TcCnUmrFQ/profile-displayphoto-shrink_100_100/0?e=1536796800&v=beta&t=1qWDuWwrow24Odl7T2rgG-if_fC_2fG7Zqo4MnFA-20'
         }
       };
-    }
+    },
+    computed: mapState({
+      usuarioLogado: state => state.authStore.usuarioLogado,
+      authenticated: state => state.authStore.authenticated,
+      loading: state => state.authStore.loading
+    })
   };
 </script>
 

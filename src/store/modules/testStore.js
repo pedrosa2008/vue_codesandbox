@@ -1,4 +1,4 @@
-import testApi from '@/api/testApi'
+import testApi from '@/api/testApi';
 
 // initial state
 const state = {
