@@ -1,25 +1,29 @@
 <template>
-  <section class="box login-box">
-    <section class="media-content">
-      <section class="content">
-        <b-tag type="is-warning" v-if="erro">
-          Não foi possível autenticar! {{ erro }}
-        </b-tag>
-        <hr v-if="erro" />
-        <b-field label="Login">
-          <b-input v-model="usuario.login" type="text" minlength="5" maxlength="20" autofocus></b-input>
-        </b-field>
-        <b-field label="Senha">
-          <b-input v-model="usuario.senha" type="password"></b-input>
-        </b-field>
-      </section>
-    </section>
+  <section class="columns is-mobile is-centered is-vcentered">
+    <section class="column is-5-desktop is-10-mobile is-narrow">
+      <section class="box">
+        <section class="media-content">
+          <section class="content">
+            <b-tag type="is-warning" v-if="erro">
+              Não foi possível autenticar! {{ erro }}
+            </b-tag>
+            <hr v-if="erro" />
+            <b-field label="Login">
+              <b-input v-model="usuario.login" type="text" minlength="5" maxlength="20" autofocus></b-input>
+            </b-field>
+            <b-field label="Senha">
+              <b-input v-model="usuario.senha" type="password"></b-input>
+            </b-field>
+          </section>
+        </section>
 
-    <section class="media-footer">
-      <hr/>
-      <section class="buttons has-addons is-right">
-        <a class="button is-secondary" v-on:click="onCancelarClick" >Cancelar</a>
-        <a class="button is-primary" @click="onLogarClick" >Logar</a>
+        <section class="media-footer">
+          <hr/>
+          <section class="buttons has-addons is-right">
+            <a class="button is-secondary" v-on:click="onCancelarClick" >Cancelar</a>
+            <a class="button is-primary" @click="onLogarClick" >Logar</a>
+          </section>
+        </section>
       </section>
     </section>
   </section>
@@ -56,12 +60,10 @@
 </script>
 
 <style scoped>
-  .login-box {
-    position:fixed;
-    top: 50%;
-    left: 50%;
-    width: 30em;
-    margin-top: -9em; /*set to a negative number 1/2 of your height*/
-    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+  .is-vcentered {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: -webkit-fill-available;
   }
 </style>

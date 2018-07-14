@@ -44,7 +44,7 @@
       </section>
     </nav>
 
-    <section id="content" class="column content">
+    <section id="content" v-bind:class="[ authenticated ? 'content' : 'content2', 'column' ]">
       <router-view />
     </section>
 
@@ -52,7 +52,7 @@
       <section class="navbar-start">
         <section class="navbar-item">
           <p>
-            <strong>Finanças</strong> by <a>Fernando Pedrosa</a>.
+            <strong>Finanças</strong> by <a>Parzival</a>.
           </p>
         </section>
       </section>
@@ -110,6 +110,9 @@
   .content {
     margin-top: 3.5rem;
     margin-bottom: 3.5rem;
+  }
+  .content2 {
+    min-height: -webkit-fill-available;
   }
   .icon {
     display: flex;

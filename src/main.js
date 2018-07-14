@@ -18,12 +18,6 @@ Vue.use(Buefy, {
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   const authenticated = store.state.authStore.authenticated;
-  console.log("to");
-  console.log(to.path);
-  console.log("from");
-  console.log(from);
-  console.log("next");
-  console.log(next);
 
   if (requiresAuth && !authenticated) {
     next('/');
