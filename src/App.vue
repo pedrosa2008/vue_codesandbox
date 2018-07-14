@@ -45,7 +45,9 @@
     </nav>
 
     <section id="content" v-bind:class="[ authenticated ? 'content' : 'content2', 'column' ]">
-      <router-view />
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </section>
 
     <nav class="navbar is-transparent is-fixed-bottom has-shadow is-inline-flex-mobile">

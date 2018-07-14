@@ -1,16 +1,16 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
 import Login from '@/pages/Login';
 import Dashboard from '@/pages/Dashboard';
 import Usuario from '@/pages/Usuario';
 import Form from '@/pages/Form';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 //const router = new VueRouter({ routes: routes, mode: 'history' });
 
-export default new Router({
+export default new VueRouter({
   routes: [
     {
       path: '/',
