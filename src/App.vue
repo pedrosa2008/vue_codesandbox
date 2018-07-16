@@ -2,7 +2,7 @@
   <section id="app">
     <b-loading :active.sync="isGlobalLoading"></b-loading>
 
-    <barra-top></barra-top>
+    <barra-top />
     
     <section id="content" v-bind:class="[ authenticated ? 'content' : 'content-marginless', 'column' ]">
       <transition name="fade">
@@ -10,7 +10,7 @@
       </transition>
     </section>
 
-    <barra-footer></barra-footer>
+    <barra-footer />
   </section>
 </template>
 

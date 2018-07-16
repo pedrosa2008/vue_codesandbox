@@ -21,7 +21,7 @@
             <a class="navbar-item">Pessoa Jurídica</a>
           </section>
         </section>
-
+        
         <router-link to="form" class="navbar-item">Form Test</router-link>
       </section>
 
