@@ -8,9 +8,10 @@ import usuarioStore from "./modules/usuarioStore";
 import authStore from "./modules/authStore";
 import testStore from "./modules/testStore";
 
-Vue.use(Vuex);
-
 const debug = process.env.NODE_ENV !== "production";
+var in30Minutes = 1 / 48;
+
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
@@ -31,7 +32,8 @@ export default new Vuex.Store({
     createPersistedState({
       storage: {
         getItem: key => Cookies.get(key),
-        setItem: (key, value) => Cookies.set(key, value, { secure: true }),
+        setItem: (key, value) =>
+          Cookies.set(key, value, { expires: in30Minutes, secure: true }),
         removeItem: key => Cookies.remove(key)
       }
     })

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+//import IdleVue from "idle-vue";
 import { mapState } from "vuex";
 import BarraTop from "./components/layout/BarraTop.vue";
 import BarraFooter from "./components/layout/BarraFooter.vue";
