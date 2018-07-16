@@ -10,7 +10,7 @@
               </b-tag>
               <hr v-if="erro" />
               <b-field label="Login">
-                <b-input v-model="usuario.login" type="text" required minlength="5" maxlength="20" autofocus></b-input>
+                <b-input v-model="usuario.login" type="text" required minlength="5" maxlength="20" ></b-input>
               </b-field>
               <b-field label="Senha">
                 <b-input v-model="usuario.senha" type="password" required></b-input>
@@ -32,40 +32,40 @@
 </template>
 
 <script>
-  import { mapState } from "vuex";
+import { mapState } from "vuex";
 
-  export default {
-    name: "Login",
-    data() {
-      return {
-        usuario: {
-          login: '',
-          senha: ''
-        }
+export default {
+  name: "Login",
+  data() {
+    return {
+      usuario: {
+        login: "",
+        senha: ""
       }
+    };
+  },
+  computed: mapState({
+    erro: state => state.authStore.usuarioLogado.erro
+  }),
+  methods: {
+    onLogarClick: function() {
+      this.$store.dispatch("authStore/authenticate", this.usuario);
     },
-    computed: mapState({
-      erro: state => state.authStore.usuarioLogado.erro
-    }),
-    methods: {
-      onLogarClick: function() {
-        this.$store.dispatch("authStore/authenticate", this.usuario);
-      },
-      onCancelarClick: function() {
-       this.usuario = {
-          login: '',
-          senha: ''
-        }
-      }
+    onCancelarClick: function() {
+      this.usuario = {
+        login: "",
+        senha: ""
+      };
     }
-  };
+  }
+};
 </script>
 
 <style scoped>
-  .is-vcentered {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    min-height: -webkit-fill-available;
-  }
+.is-vcentered {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: -webkit-fill-available;
+}
 </style>
