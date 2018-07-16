@@ -1,6 +1,6 @@
 <template>
   <section class="columns is-mobile is-centered is-vcentered">
-    <section class="column is-5-desktop is-10-mobile is-narrow">
+    <section class="column is-3-widescreen is-5-desktop is-7-tablet is-10-mobile is-narrow">
       <section class="box">
         <section class="media-content">
           <section class="content">

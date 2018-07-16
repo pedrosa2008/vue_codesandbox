@@ -9,7 +9,7 @@
       </b-field>
     </form-box>
 
-    <form-box displayButtons="none">
+    <form-box :displayButtons="false">
       <data-table v-bind:data="lista" :columns="colunas" :isLoading="loading"
         @clear-selected-click="clearSelecionado" v-on:select-click="selecionar">
       </data-table>

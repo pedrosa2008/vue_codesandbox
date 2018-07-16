@@ -7,7 +7,7 @@
       </section>
     </section>
 
-    <section class="media-footer" v-bind:style="{ display: displayButtons }">
+    <section class="media-footer" v-if="displayButtons">
       <hr/>
       <section class="buttons has-addons is-right">
         <a class="button is-secondary" @click="onClearClick" >Clear</a>
@@ -20,7 +20,13 @@
 <script>
   export default {
     name: "FormBox",
-    props: ["message", "displayButtons"],
+    props: {
+      message: String,
+      displayButtons: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {};
     },
