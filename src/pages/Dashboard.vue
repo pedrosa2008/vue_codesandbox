@@ -46,6 +46,12 @@
           <p class="subtitle">Subtitle</p>
         </article>
       </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">Datatable de Histórico</p>
+          <p class="subtitle">Subtitle</p>
+        </article>
+      </div>
     </div>
   </section>
 </template>
