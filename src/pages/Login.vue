@@ -5,6 +5,7 @@
         <form v-on:submit.prevent="authenticate(usuario)">
           <section class="media-content">
             <section class="content">
+              <h1 class="is-size-1">Finanças</h1>
               <b-tag type="is-warning" v-if="erro">
                 Não foi possível autenticar! {{ erro }}
               </b-tag>
@@ -22,7 +23,7 @@
             <hr/>
             <section class="buttons has-addons is-right">
               <a class="button is-secondary" v-on:click="onCancelarClick" >Cancelar</a>
-              <input type="submit" class="button is-primary" value="Logar" />
+              <button type="submit" class="button is-primary">Logar</button>
             </section>
           </section>
         </form>
