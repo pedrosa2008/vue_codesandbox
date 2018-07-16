@@ -30,10 +30,12 @@ export default {
       showNav: false
     };
   },
-  computed: mapState({
-    authenticated: state => state.authStore.authenticated,
-    isGlobalLoading: state => state.authStore.loading
-  })
+  computed: {
+    ...mapState({
+      authenticated: state => state.authStore.authenticated,
+      isGlobalLoading: state => state.authStore.loading
+    })
+  }
 };
 </script>
 
