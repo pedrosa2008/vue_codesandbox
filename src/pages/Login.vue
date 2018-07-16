@@ -2,7 +2,7 @@
   <section class="columns is-mobile is-centered is-vcentered">
     <section class="column is-3-widescreen is-5-desktop is-7-tablet is-10-mobile is-narrow">
       <section class="box">
-        <form v-on:submit.prevent="onLogarClick">
+        <form v-on:submit.prevent="authenticate(usuario)">
           <section class="media-content">
             <section class="content">
               <b-tag type="is-warning" v-if="erro">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "Login",
@@ -44,13 +44,13 @@ export default {
       }
     };
   },
-  computed: mapState({
-    erro: state => state.authStore.usuarioLogado.erro
-  }),
+  computed: {
+    ...mapState({
+      erro: state => state.authStore.usuarioLogado.erro
+    })
+  },
   methods: {
-    onLogarClick: function() {
-      this.$store.dispatch("authStore/authenticate", this.usuario);
-    },
+    ...mapActions("authStore", ["authenticate"]),
     onCancelarClick: function() {
       this.usuario = {
         login: "",

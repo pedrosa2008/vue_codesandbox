@@ -21,7 +21,7 @@
             <a class="navbar-item">Pessoa Jurídica</a>
           </section>
         </section>
-        
+
         <router-link to="form" class="navbar-item">Form Test</router-link>
       </section>
 
@@ -54,11 +54,15 @@ export default {
       showNav: false
     };
   },
-  computed: mapState({
-    authenticated: state => state.authStore.authenticated,
-    usuarioLogado: state => state.authStore.usuarioLogado
-  }),
-  methods: mapActions("authStore", ["logout"])
+  computed: {
+    ...mapState({
+      authenticated: state => state.authStore.authenticated,
+      usuarioLogado: state => state.authStore.usuarioLogado
+    })
+  },
+  methods: {
+    ...mapActions("authStore", ["logout"])
+  }
 };
 </script>
 
