@@ -4,7 +4,7 @@
 
     <barra-top></barra-top>
     
-    <section id="content" v-bind:class="[ authenticated ? 'content' : 'content2', 'column' ]">
+    <section id="content" v-bind:class="[ authenticated ? 'content' : 'content-marginless', 'column' ]">
       <transition name="fade">
         <router-view></router-view>
       </transition>
@@ -42,7 +42,7 @@ export default {
   margin-top: 3.5rem;
   margin-bottom: 3.5rem;
 }
-.content2 {
+.content-marginless {
   min-height: -webkit-fill-available;
 }
 </style>

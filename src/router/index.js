@@ -9,7 +9,7 @@ import Form from "@/pages/Form";
 Vue.use(VueRouter);
 
 export default new VueRouter({
-  //mode: 'history',
+  mode: "history",
   routes: [
     {
       path: "/",

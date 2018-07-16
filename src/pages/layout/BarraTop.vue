@@ -13,7 +13,7 @@
 
     <section id="navbarTop" class="navbar-menu" :class="{ 'is-active': showNav }">
       <section class="navbar-start">
-        <a class="navbar-item">Dashboard</a>
+        <router-link to="dashboard" class="navbar-item">Dashboard</router-link>
         <section class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Pessoas</a>
           <section class="navbar-dropdown is-boxed">
@@ -21,16 +21,18 @@
             <a class="navbar-item">Pessoa Jurídica</a>
           </section>
         </section>
+
+        <router-link to="form" class="navbar-item">Form Test</router-link>
       </section>
 
       <section class="navbar-end">
         <section class="navbar-item is-hoverable avatar">
-        <section class="user">
-          <span>{{ usuarioLogado.nome }}</span>
-          <figure class="is-hidden-touch">
-            <img v-bind:src="usuarioLogado.avatar">
-          </figure>
-        </section>
+          <section class="user-info">
+            <span>{{ usuarioLogado.nome }}</span>
+            <figure class="is-hidden-touch">
+              <img v-bind:src="usuarioLogado.avatar">
+            </figure>
+          </section>
           <section class="navbar-dropdown is-boxed is-right">
             <a class="navbar-item">Perfil</a>
             <hr class="navbar-divider">
@@ -88,7 +90,7 @@ export default {
 .avatar span {
   margin: 0.9rem;
 }
-.user {
+.user-info {
   display: inline-flex;
 }
 </style>
