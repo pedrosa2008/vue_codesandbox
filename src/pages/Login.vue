@@ -5,16 +5,13 @@
         <form v-on:submit.prevent="authenticate(usuario)">
           <section class="media-content">
             <section class="content">
-              <h1 class="is-size-1">Finanças</h1>
-              <b-tag type="is-warning" v-if="erro">
-                Não foi possível autenticar! {{ erro }}
-              </b-tag>
-              <hr v-if="erro" />
-              <b-field label="Login">
-                <b-input v-model="usuario.login" type="text" required minlength="5" maxlength="20" ></b-input>
+              <h1 class="is-size-1 has-text-primary">Finanças</h1>
+              <b-tag type="is-warning" class="field" v-if="erro">Não foi possível autenticar! {{ erro }}</b-tag>
+              <b-field>
+                <b-input v-model="usuario.login" type="text" placeholder="Login" required minlength="5" maxlength="20" ></b-input>
               </b-field>
-              <b-field label="Senha">
-                <b-input v-model="usuario.senha" type="password" required></b-input>
+              <b-field>
+                  <b-input v-model="usuario.senha" type="password" placeholder="Senha" password-reveal required></b-input>
               </b-field>
             </section>
           </section>
@@ -39,6 +36,7 @@ export default {
   name: "Login",
   data() {
     return {
+      passwordFieldType: "password",
       usuario: {
         login: "",
         senha: ""
@@ -53,6 +51,8 @@ export default {
   methods: {
     ...mapActions("authStore", ["authenticate"]),
     onCancelarClick: function() {
+      this.$store.dispatch("authStore/limparFormLogin", {});
+
       this.usuario = {
         login: "",
         senha: ""
