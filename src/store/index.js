@@ -2,10 +2,11 @@ import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
 import Cookies from "js-cookie";
+
 import createLogger from "@/plugins/logger";
 
-import usuarioStore from "./modules/usuarioStore";
 import authStore from "./modules/authStore";
+import usuarioStore from "./modules/usuarioStore";
 import testStore from "./modules/testStore";
 
 const debug = process.env.NODE_ENV !== "production";
