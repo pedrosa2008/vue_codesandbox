@@ -1,6 +1,6 @@
 <template>
   <section class="columns is-mobile is-centered is-vcentered">
-    <section class="column is-3-widescreen is-5-desktop is-7-tablet is-10-mobile is-narrow">
+    <section class="column is-3-fullhd is-5-widescreen is-7-tablet is-10-mobile is-narrow">
       <section class="box">
         <form v-on:submit.prevent="authenticate(usuario)">
           <section class="media-content">
