@@ -42,9 +42,6 @@ const actions = {
     });
 
     //Snackbar.open('Logout efetuado com sucesso!');
-  },
-  limparFormLogin({ commit }, usuario) {
-    commit("setUsuarioLogado", usuario);
   }
 };
 
