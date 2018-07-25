@@ -45,19 +45,19 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "BarraTop",
+  name: "barra-top",
   data() {
     return {
       showNav: false
     };
   },
   computed: {
-    ...mapState({
-      authenticated: state => state.authStore.authenticated,
-      usuarioLogado: state => state.authStore.usuarioLogado
+    ...mapGetters("authStore", {
+      authenticated: "authenticated",
+      usuarioLogado: "usuarioLogado"
     })
   },
   methods: {

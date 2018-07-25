@@ -30,13 +30,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "Login",
   data() {
     return {
-      passwordFieldType: "password",
       usuario: {
         login: "",
         senha: ""
@@ -44,14 +42,14 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      erro: state => state.authStore.usuarioLogado.erro
+    ...mapGetters("authStore", {
+      erro: "erro"
     })
   },
   methods: {
     ...mapActions("authStore", ["authenticate"]),
     onCancelarClick: function() {
-      this.$store.dispatch("authStore/limparFormLogin", {});
+      this.$store.dispatch("authStore/limparFormLogin");
 
       this.usuario = {
         login: "",

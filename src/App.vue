@@ -15,8 +15,7 @@
 </template>
 
 <script>
-//import IdleVue from "idle-vue";
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import BarraTop from "./components/layout/BarraTop.vue";
 import BarraFooter from "./components/layout/BarraFooter.vue";
 
@@ -32,9 +31,9 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      authenticated: state => state.authStore.authenticated,
-      isGlobalLoading: state => state.authStore.loading
+    ...mapGetters("authStore", {
+      authenticated: "authenticated",
+      isGlobalLoading: "loading"
     })
   }
 };

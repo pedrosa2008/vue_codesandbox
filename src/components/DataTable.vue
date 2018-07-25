@@ -20,25 +20,25 @@
 </template>
 
 <script>
-  export default {
-    name: "DataTable",
-    props: ["data", "columns", "isLoading"],
-    data() {
-      return {
-        selected: {}
-      };
-    },
-    methods: {
-      onClearSelectedClick: function() {
-        this.$emit("clear-selected-click");
-        this.selected = {};
-      }
-    },
-    computed: {
-      disabled: function () {
-        this.$emit("select-click", this.selected);
-        return (JSON.stringify(this.selected) === JSON.stringify({}));
-      }
+export default {
+  name: "data-table",
+  props: ["data", "columns", "isLoading"],
+  data() {
+    return {
+      selected: {}
+    };
+  },
+  methods: {
+    onClearSelectedClick: function() {
+      this.$emit("clear-selected-click");
+      this.selected = {};
     }
-  };
+  },
+  computed: {
+    disabled: function() {
+      this.$emit("select-click", this.selected);
+      return JSON.stringify(this.selected) === JSON.stringify({});
+    }
+  }
+};
 </script>

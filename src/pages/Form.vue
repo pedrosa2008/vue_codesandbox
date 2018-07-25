@@ -20,12 +20,11 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import FormBox from "@/components/FormBox.vue";
 import DataTable from "@/components/DataTable.vue";
 
 export default {
-  name: "Form",
   components: {
     FormBox,
     DataTable
@@ -37,15 +36,16 @@ export default {
     return {
       name: "",
       email: "",
-      colunas,
-      itemSelecionado: {}
+      itemSelecionado: {},
+      colunas
     };
   },
-  computed: mapState({
-    lista: state => state.testStore.lista,
-    loading: state => state.testStore.loading //,
-    //itemSelecionado: state => state.testStore.item
-  }),
+  computed: {
+    ...mapGetters("testStore", {
+      lista: "lista",
+      loading: "loading"
+    })
+  },
   methods: {
     onSave: function() {
       console.log("Save", this.name, this.email);
@@ -54,11 +54,9 @@ export default {
       alert("clear");
     },
     clearSelecionado: function() {
-      //this.$store.dispatch('testStore/setItem', {});
       this.itemSelecionado = {};
     },
     selecionar: function(itemSelecionado) {
-      //this.$store.dispatch('testStore/setItem', itemSelecionado);
       this.itemSelecionado = itemSelecionado;
     }
   }

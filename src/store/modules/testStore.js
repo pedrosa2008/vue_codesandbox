@@ -1,32 +1,36 @@
-import testApi from '@/api/testApi';
+import testApi from "@/api/testApi";
 
 // initial state
 const state = {
   lista: [],
-  item: {},
   loading: false
 };
 
 // getters
-const getters = {};
+const getters = {
+  lista: state => {
+    return state.lista;
+  },
+  loading: state => {
+    return state.loading;
+  }
+};
 
 // actions
 const actions = {
   getAll({ commit }) {
-    commit('setLoading', true);
-    
-    testApi.getAll()
-      .then((lista) => {
-        commit('setLista', lista);
-        commit('setLoading', false);
+    commit("setLoading", true);
+
+    testApi
+      .getAll()
+      .then(lista => {
+        commit("setLista", lista);
+        commit("setLoading", false);
       })
-      .catch((error) => {
-        commit('setLista', []);
-        commit('setLoading', false);
+      .catch(error => {
+        commit("setLista", []);
+        commit("setLoading", false);
       });
-  },
-  setItem({ commit }, item) {
-    commit('setItem', item);
   }
 };
 
@@ -37,9 +41,6 @@ const mutations = {
   },
   setLoading(state, loading) {
     state.loading = loading;
-  },
-  setItem(state, item) {
-    state.item = item;
   }
 };
 

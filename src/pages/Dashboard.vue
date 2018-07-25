@@ -58,7 +58,6 @@
 
 <script>
 export default {
-  name: "Dashboard",
   data() {
     return {
       pageName: "Dashboard Page"

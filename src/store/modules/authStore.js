@@ -10,7 +10,20 @@ const state = {
 };
 
 // getters
-const getters = {};
+const getters = {
+  usuarioLogado: state => {
+    return state.usuarioLogado;
+  },
+  authenticated: state => {
+    return state.authenticated;
+  },
+  loading: state => {
+    return state.loading;
+  },
+  erro: state => {
+    return state.usuarioLogado.erro;
+  }
+};
 
 // actions
 const actions = {
@@ -42,6 +55,9 @@ const actions = {
     });
 
     //Snackbar.open('Logout efetuado com sucesso!');
+  },
+  limparFormLogin({ commit }) {
+    commit("setUsuarioLogado", {});
   }
 };
 

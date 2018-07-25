@@ -18,22 +18,22 @@
 </template>
 
 <script>
-  export default {
-    name: "FormBox",
-    props: {
-      message: String,
-      displayButtons: {
-        type: Boolean,
-        default: true
-      }
-    },
-    data() {
-      return {};
-    },
-    methods: {
-      onClearClick: function() {
-        this.$emit("clear-click");
-      }
+export default {
+  name: "form-box",
+  props: {
+    message: String,
+    displayButtons: {
+      type: Boolean,
+      default: true
     }
-  };
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    onClearClick: function() {
+      this.$emit("clear-click");
+    }
+  }
+};
 </script>
